@@ -20,7 +20,20 @@ header {
   padding: 20px;
 }
 
-header img {
+/* ESPACIO DEL LOGO */
+.logo-container {
+  background: white;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.logo-container img {
   width: 80px;
 }
 
@@ -63,9 +76,15 @@ header img {
 <body>
 
 <header>
-  <img src="img2/logo.png" alt="Logo">
+
+  <!-- ESPACIO DEL LOGO -->
+  <div class="logo-container">
+    <img src="img2/logo.png" alt="Logo Infinity Laser">
+  </div>
+
   <h1>Infinity Laser</h1>
   <p>Cortes y diseños personalizados en láser</p>
+
 </header>
 
 <section class="galeria">
@@ -91,36 +110,6 @@ header img {
     <div class="card">
       <img src="img2/p4.jpg">
       <p>Diseño grabado láser</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p5.jpg">
-      <p>Reloj temático personalizado</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p6.jpg">
-      <p>Diseño creativo en madera</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p7.jpg">
-      <p>Reloj Star Wars</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p8.jpg">
-      <p>Decoración con nombre</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p9.jpg">
-      <p>Diseño floral personalizado</p>
-    </div>
-
-    <div class="card">
-      <img src="img2/p10.jpg">
-      <p>Decoración con nombres</p>
     </div>
 
   </div>
