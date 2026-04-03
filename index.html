@@ -1,119 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infinity Laser</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Laser</title>
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f5f5;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-/* HEADER */
-header {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
 
-/* ESPACIO DEL LOGO */
-.logo-container {
-  background: white;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
+    header {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+    }
 
-.logo-container img {
-  width: 80px;
-}
+    .logo-container {
+      background: white;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
-/* GALERIA */
-.galeria {
-  padding: 20px;
-  text-align: center;
-}
+    .logo-container img {
+      width: 80px;
+      max-width: 100%;
+    }
 
-.galeria h2 {
-  margin-bottom: 20px;
-}
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 32px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
+    header p {
+      margin: 0;
+      font-size: 16px;
+      color: #d9d9d9;
+    }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+    .galeria {
+      padding: 30px 20px 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-.card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
+    .galeria h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 30px;
+    }
 
-.card p {
-  padding: 10px;
-  font-size: 14px;
-}
-</style>
+    .galeria-intro {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+    }
 
+    .categoria {
+      margin-bottom: 45px;
+    }
+
+    .categoria h3 {
+      margin-bottom: 18px;
+      font-size: 24px;
+      color: #111;
+      border-left: 6px solid #000;
+      padding-left: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card p {
+      margin: 0;
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .card img {
+        height: 240px;
+      }
+
+      header h1 {
+        font-size: 26px;
+      }
+
+      .galeria h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
+  <header>
+    <div class="logo-container">
+      <img src="img2/p00.png" alt="Logo Infinity Laser">
+    </div>
+    <h1>Infinity Laser</h1>
+    <p>Cortes y diseños personalizados en láser</p>
+  </header>
 
-  <!-- ESPACIO DEL LOGO -->
-  <div class="logo-container">
-    <img src="img2/p00.png" alt="Logo Infinity Laser">
-  </div>
+  <section class="galeria">
+    <h2>Galería de trabajos</h2>
+    <p class="galeria-intro">
+      Explora algunos de nuestros productos personalizados en MDF, acrílico y grabado láser.
+    </p>
 
-  <h1>Infinity Laser</h1>
-  <p>Cortes y diseños personalizados en láser</p>
+    <!-- RELOJES -->
+    <div class="categoria">
+      <h3>Relojes personalizados</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="img2/p7.jpeg" alt="Reloj Yaya Cars">
+          <p>Reloj personalizado para taller automotriz Yaya Cars.</p>
+        </div>
 
-</header>
+        <div class="card">
+          <img src="img2/p8.jpeg" alt="Reloj Mandalorian">
+          <p>Reloj temático inspirado en The Mandalorian.</p>
+        </div>
 
-<section class="galeria">
-  <h2>Galería de trabajos</h2>
+        <div class="card">
+          <img src="img2/p9.jpeg" alt="Relojes personalizados">
+          <p>Diseños de relojes personalizados para diferentes estilos.</p>
+        </div>
 
-  <div class="grid">
+        <div class="card">
+          <img src="img2/p10.jpeg" alt="Reloj Star Wars">
+          <p>Reloj decorativo con diseño de Star Wars.</p>
+        </div>
 
-    <div class="card">
-      <img src="img2/p5.jpeg">
-      <p>Diseño en madera personalizado</p>
+        <div class="card">
+          <img src="img2/p21.jpeg" alt="Reloj Yaya Cars primer plano">
+          <p>Detalle de reloj personalizado con grabado automotriz.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <img src="img2/p2.jpeg">
-      <p>Figura decorativa en MDF</p>
+    <!-- ROSAS Y DETALLES -->
+    <div class="categoria">
+      <h3>Rosas y detalles decorativos</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="img2/p11.jpeg" alt="Rosa Feliz día de mujer">
+          <p>Rosa decorativa personalizada para fechas especiales.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p12.jpeg" alt="Rosa decorativa personalizada">
+          <p>Modelo de rosa personalizada en diferentes tamaños.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p15.jpeg" alt="Rosas personalizadas">
+          <p>Juego de rosas decorativas para regalo y detalle especial.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p20.jpeg" alt="Producción de rosas">
+          <p>Producción de rosas personalizadas en serie.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <img src="img2/p3.jpeg">
-      <p>Reloj personalizado</p>
+    <!-- LETRAS Y NOMBRES -->
+    <div class="categoria">
+      <h3>Nombres y letras decorativas</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="img2/p13.jpeg" alt="Nombre Mi Bautizo Antonella">
+          <p>Letras decorativas personalizadas para eventos especiales.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p14.jpeg" alt="Nombres decorativos">
+          <p>Nombres en acabado brillante ideales para decoración.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <img src="img2/p4.jpeg">
-      <p>Diseño grabado láser</p>
+    <!-- ESCUDOS Y LOGOS -->
+    <div class="categoria">
+      <h3>Escudos y logotipos</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="img2/p16.jpeg" alt="Escudo Alejo">
+          <p>Escudo decorativo personalizado con nombre.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p17.jpeg" alt="Escudo Alejo vertical">
+          <p>Versión completa de escudo personalizado para pared o evento.</p>
+        </div>
+      </div>
     </div>
 
-  </div>
-</section>
+    <!-- MARCOS Y BASES -->
+    <div class="categoria">
+      <h3>Marcos y bases personalizadas</h3>
+      <div class="grid">
+        <div class="card">
+          <img src="img2/p18.jpeg" alt="Marco Antonella">
+          <p>Base decorativa con portarretrato y compartimento personalizado.</p>
+        </div>
+
+        <div class="card">
+          <img src="img2/p19.jpeg" alt="Marco personalizado Antonella">
+          <p>Vista frontal del diseño de base personalizada Antonella.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Infinity Laser - Diseños personalizados en láser
+  </footer>
 
 </body>
 </html>
