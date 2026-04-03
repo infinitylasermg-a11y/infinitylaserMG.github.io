@@ -2,64 +2,129 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Galería Infinity Láser MG</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity Laser</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f5f7fb;
-  text-align:center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
 }
 
-h1{
-  background:#0a2540;
-  color:white;
-  padding:20px;
-  margin:0;
+/* HEADER */
+header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.galeria{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
-  padding:20px;
+header img {
+  width: 80px;
 }
 
-.galeria img{
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-  transition:transform 0.3s;
+/* GALERIA */
+.galeria {
+  padding: 20px;
+  text-align: center;
 }
 
-.galeria img:hover{
-  transform:scale(1.05);
+.galeria h2 {
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 10px;
+  font-size: 14px;
 }
 </style>
 
 </head>
-
 <body>
 
-<h1>Trabajos Infinity Láser MG</h1>
+<header>
+  <img src="img2/logo.png" alt="Logo">
+  <h1>Infinity Laser</h1>
+  <p>Cortes y diseños personalizados en láser</p>
+</header>
 
-<div class="galeria">
+<section class="galeria">
+  <h2>Galería de trabajos</h2>
 
-<img src="img2/p6.jpeg">
-<img src="img2/p7.jpeg">
-<img src="img2/p8.jpeg">
-<img src="img2/p9.jpeg">
-<img src="img2/p10.jpeg">
-<img src="img2/p11.jpeg">
-<img src="img2/p12.jpeg">
-<img src="img2/p13.jpeg">
-<img src="img2/p14.jpeg">
-<img src="img2/p15.jpeg">
+  <div class="grid">
 
-</div>
+    <div class="card">
+      <img src="img2/p1.jpg">
+      <p>Diseño en madera personalizado</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p2.jpg">
+      <p>Figura decorativa en MDF</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p3.jpg">
+      <p>Reloj personalizado</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p4.jpg">
+      <p>Diseño grabado láser</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p5.jpg">
+      <p>Reloj temático personalizado</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p6.jpg">
+      <p>Diseño creativo en madera</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p7.jpg">
+      <p>Reloj Star Wars</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p8.jpg">
+      <p>Decoración con nombre</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p9.jpg">
+      <p>Diseño floral personalizado</p>
+    </div>
+
+    <div class="card">
+      <img src="img2/p10.jpg">
+      <p>Decoración con nombres</p>
+    </div>
+
+  </div>
+</section>
 
 </body>
 </html>
