@@ -23,6 +23,6 @@ img {
 
 <h1>Mi Imagen</h1>
 
-<img src="imagen2" alt="Imagen">
+<img src="img 2/p00.png" alt="Imagen">
 
 </body>
