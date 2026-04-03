@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -298,7 +299,7 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand" style="display:flex; align-items:center; gap:14px;"><img src="p3.png" alt="Logo Infinity Láser MG" style="width:78px; height:78px; object-fit:contain; background:white; border-radius:16px; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12);"> <span>Infinity Láser MG</span></div>
+      <div class="brand" style="display:flex; align-items:center; gap:14px;"><img src="img2/p00.png" alt="Logo Infinity Láser MG" style="width:78px; height:78px; object-fit:contain; background:white; border-radius:16px; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12);"> <span>Infinity Láser MG</span></div>
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#trabajos">Catálogo</a>
