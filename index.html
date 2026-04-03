@@ -1,22 +1,42 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Infinity Láser MG</title>
+<title>Galería Infinity Láser MG</title>
 
 <style>
 body{
   margin:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+  font-family:Arial, sans-serif;
   background:#f5f7fb;
+  text-align:center;
 }
 
-img{
-  width:220px;
+h1{
+  background:#0a2540;
+  color:white;
+  padding:20px;
+  margin:0;
+}
+
+.galeria{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.galeria img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  transition:transform 0.3s;
+}
+
+.galeria img:hover{
+  transform:scale(1.05);
 }
 </style>
 
@@ -24,7 +44,22 @@ img{
 
 <body>
 
-<img src="img2/p00.png" alt="Logo Infinity Láser MG">
+<h1>Trabajos Infinity Láser MG</h1>
+
+<div class="galeria">
+
+<img src="img2/img1.jpeg">
+<img src="img2/img2.jpeg">
+<img src="img2/img3.jpeg">
+<img src="img2/img4.jpeg">
+<img src="img2/img5.jpeg">
+<img src="img2/img6.jpeg">
+<img src="img2/img7.jpeg">
+<img src="img2/img8.jpeg">
+<img src="img2/img9.jpeg">
+<img src="img2/img10.jpeg">
+
+</div>
 
 </body>
 </html>
