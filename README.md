@@ -299,7 +299,7 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand" style="display:flex; align-items:center; gap:14px;">< src="img 2/p00.png" alt="Logo Infinity Láser MG" style="width:78px; height:78px; object-fit:contain; background:white; border-radius:16px; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12);"> <span>Infinity Láser MG</span></div>
+      <div class="brand" style="display:flex; align-items:center; gap:14px;"><img src="img 2/p00.png" alt="Logo Infinity Láser MG" style="width:78px; height:78px; object-fit:contain; background:white; border-radius:16px; padding:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12);"> <span>Infinity Láser MG</span></div>
       <div class="nav-links">
         <a href="#servicios">Servicios</a>
         <a href="#trabajos">Catálogo</a>
@@ -325,7 +325,7 @@
       </div>
 
       <div class="hero-card">
-        <div style="text-align:center; margin-bottom:18px;"><img src="img.p3.png" alt="Logo Infinity Láser MG" style="max-width:240px; width:100%; object-fit:contain; background:white; border-radius:20px; padding:10px; box-shadow:0 8px 24px rgba(0,0,0,0.08);"></div>
+        <div style="text-align:center; margin-bottom:18px;"><img src="p3.png" alt="Logo Infinity Láser MG" style="max-width:240px; width:100%; object-fit:contain; background:white; border-radius:20px; padding:10px; box-shadow:0 8px 24px rgba(0,0,0,0.08);"></div>
         <h3>¿Qué hacemos?</h3>
         <p>Trabajamos proyectos personalizados para clientes, negocios y emprendimientos.</p>
         <ul class="mini-list">
@@ -640,4 +640,3 @@
   </footer>
 </body>
 </html>
-
