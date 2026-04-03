@@ -1,269 +1,258 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infinity Laser</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinity Laser</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
 
-    header {
-      background: #000;
-      color: white;
-      text-align: center;
-      padding: 25px 20px;
-    }
+/* HEADER */
+header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
 
-    .logo-container {
-      background: white;
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 12px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
+.logo-container {
+  background: white;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .logo-container img {
-      width: 80px;
-      max-width: 100%;
-    }
+.logo-container img {
+  width: 80px;
+}
 
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 32px;
-    }
+/* GALERIA */
+.galeria {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    header p {
-      margin: 0;
-      font-size: 16px;
-      color: #d9d9d9;
-    }
+.categoria {
+  margin-bottom: 40px;
+}
 
-    .galeria {
-      padding: 30px 20px 50px;
-      max-width: 1200px;
-      margin: auto;
-    }
+.categoria h3 {
+  border-left: 5px solid black;
+  padding-left: 10px;
+}
 
-    .galeria h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 30px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
 
-    .galeria-intro {
-      text-align: center;
-      color: #555;
-      margin-bottom: 30px;
-    }
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-    .categoria {
-      margin-bottom: 45px;
-    }
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
 
-    .categoria h3 {
-      margin-bottom: 18px;
-      font-size: 24px;
-      color: #111;
-      border-left: 6px solid #000;
-      padding-left: 12px;
-    }
+.card p {
+  padding: 10px;
+  font-size: 14px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
+/* BOTON WHATSAPP */
+.btn-wsp {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+.btn-wsp:hover {
+  background: #1ebe5d;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-    }
+/* BOTON FLOTANTE */
+.wsp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+</style>
 
-    .card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card p {
-      margin: 0;
-      padding: 12px;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-      .card img {
-        height: 240px;
-      }
-
-      header h1 {
-        font-size: 26px;
-      }
-
-      .galeria h2 {
-        font-size: 24px;
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <img src="img2/p00.png" alt="Logo Infinity Laser">
-    </div>
-    <h1>Infinity Laser</h1>
-    <p>Cortes y diseños personalizados en láser</p>
-  </header>
+<header>
+  <div class="logo-container">
+    <img src="img2/p00.png">
+  </div>
+  <h1>Infinity Laser</h1>
+  <p>Cortes y diseños personalizados en láser</p>
+</header>
 
-  <section class="galeria">
-    <h2>Galería de trabajos</h2>
-    <p class="galeria-intro">
-      Explora algunos de nuestros productos personalizados en MDF, acrílico y grabado láser.
-    </p>
+<section class="galeria">
 
-    <!-- RELOJES -->
-    <div class="categoria">
-      <h3>Relojes personalizados</h3>
-      <div class="grid">
-        <div class="card">
-          <img src="img2/p7.jpeg" alt="Reloj Yaya Cars">
-          <p>Reloj personalizado para taller automotriz Yaya Cars.</p>
-        </div>
+<!-- RELOJES -->
+<div class="categoria">
+<h3>Relojes personalizados</h3>
+<div class="grid">
 
-        <div class="card">
-          <img src="img2/p8.jpeg" alt="Reloj Mandalorian">
-          <p>Reloj temático inspirado en The Mandalorian.</p>
-        </div>
+<div class="card">
+<img src="img2/p7.jpeg">
+<p>Reloj personalizado para negocio automotriz con diseño elegante.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20el%20reloj%20automotriz">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p9.jpeg" alt="Relojes personalizados">
-          <p>Diseños de relojes personalizados para diferentes estilos.</p>
-        </div>
+<div class="card">
+<img src="img2/p8.jpeg">
+<p>Reloj temático de The Mandalorian con grabado láser.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20el%20reloj%20Mandalorian">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p10.jpeg" alt="Reloj Star Wars">
-          <p>Reloj decorativo con diseño de Star Wars.</p>
-        </div>
+<div class="card">
+<img src="img2/p9.jpeg">
+<p>Relojes personalizados en diferentes estilos.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20personalizado">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p21.jpeg" alt="Reloj Yaya Cars primer plano">
-          <p>Detalle de reloj personalizado con grabado automotriz.</p>
-        </div>
-      </div>
-    </div>
+<div class="card">
+<img src="img2/p10.jpeg">
+<p>Reloj decorativo Star Wars con acabado dorado.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20Star%20Wars">Cotizar</a>
+</div>
 
-    <!-- ROSAS Y DETALLES -->
-    <div class="categoria">
-      <h3>Rosas y detalles decorativos</h3>
-      <div class="grid">
-        <div class="card">
-          <img src="img2/p11.jpeg" alt="Rosa Feliz día de mujer">
-          <p>Rosa decorativa personalizada para fechas especiales.</p>
-        </div>
+<div class="card">
+<img src="img2/p21.jpeg">
+<p>Detalle de reloj personalizado con nombre de negocio.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20personalizado%20con%20nombre">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p12.jpeg" alt="Rosa decorativa personalizada">
-          <p>Modelo de rosa personalizada en diferentes tamaños.</p>
-        </div>
+</div>
+</div>
 
-        <div class="card">
-          <img src="img2/p15.jpeg" alt="Rosas personalizadas">
-          <p>Juego de rosas decorativas para regalo y detalle especial.</p>
-        </div>
+<!-- ROSAS -->
+<div class="categoria">
+<h3>Rosas decorativas</h3>
+<div class="grid">
 
-        <div class="card">
-          <img src="img2/p20.jpeg" alt="Producción de rosas">
-          <p>Producción de rosas personalizadas en serie.</p>
-        </div>
-      </div>
-    </div>
+<div class="card">
+<img src="img2/p11.jpeg">
+<p>Rosa personalizada para fechas especiales.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosa%20personalizada">Cotizar</a>
+</div>
 
-    <!-- LETRAS Y NOMBRES -->
-    <div class="categoria">
-      <h3>Nombres y letras decorativas</h3>
-      <div class="grid">
-        <div class="card">
-          <img src="img2/p13.jpeg" alt="Nombre Mi Bautizo Antonella">
-          <p>Letras decorativas personalizadas para eventos especiales.</p>
-        </div>
+<div class="card">
+<img src="img2/p12.jpeg">
+<p>Rosa decorativa con nombre personalizado.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosa%20con%20nombre">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p14.jpeg" alt="Nombres decorativos">
-          <p>Nombres en acabado brillante ideales para decoración.</p>
-        </div>
-      </div>
-    </div>
+<div class="card">
+<img src="img2/p15.jpeg">
+<p>Rosas para eventos o ventas al por mayor.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosas%20al%20por%20mayor">Cotizar</a>
+</div>
 
-    <!-- ESCUDOS Y LOGOS -->
-    <div class="categoria">
-      <h3>Escudos y logotipos</h3>
-      <div class="grid">
-        <div class="card">
-          <img src="img2/p16.jpeg" alt="Escudo Alejo">
-          <p>Escudo decorativo personalizado con nombre.</p>
-        </div>
+<div class="card">
+<img src="img2/p20.jpeg">
+<p>Producción de rosas personalizadas en MDF.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20producción%20de%20rosas">Cotizar</a>
+</div>
 
-        <div class="card">
-          <img src="img2/p17.jpeg" alt="Escudo Alejo vertical">
-          <p>Versión completa de escudo personalizado para pared o evento.</p>
-        </div>
-      </div>
-    </div>
+</div>
+</div>
 
-    <!-- MARCOS Y BASES -->
-    <div class="categoria">
-      <h3>Marcos y bases personalizadas</h3>
-      <div class="grid">
-        <div class="card">
-          <img src="img2/p18.jpeg" alt="Marco Antonella">
-          <p>Base decorativa con portarretrato y compartimento personalizado.</p>
-        </div>
+<!-- LETRAS -->
+<div class="categoria">
+<h3>Nombres y letras</h3>
+<div class="grid">
 
-        <div class="card">
-          <img src="img2/p19.jpeg" alt="Marco personalizado Antonella">
-          <p>Vista frontal del diseño de base personalizada Antonella.</p>
-        </div>
-      </div>
-    </div>
+<div class="card">
+<img src="img2/p13.jpeg">
+<p>Nombre decorativo para eventos como bautizos.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20nombre%20decorativo">Cotizar</a>
+</div>
 
-  </section>
+<div class="card">
+<img src="img2/p14.jpeg">
+<p>Letras personalizadas con acabado brillante.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20letras%20decorativas">Cotizar</a>
+</div>
 
-  <footer>
-    © 2025 Infinity Laser - Diseños personalizados en láser
-  </footer>
+</div>
+</div>
+
+<!-- ESCUDOS -->
+<div class="categoria">
+<h3>Escudos personalizados</h3>
+<div class="grid">
+
+<div class="card">
+<img src="img2/p16.jpeg">
+<p>Escudo personalizado con nombre en diseño elegante.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20escudo%20personalizado">Cotizar</a>
+</div>
+
+<div class="card">
+<img src="img2/p17.jpeg">
+<p>Escudo grande ideal para decoración o eventos.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20escudo%20grande">Cotizar</a>
+</div>
+
+</div>
+</div>
+
+<!-- MARCOS -->
+<div class="categoria">
+<h3>Marcos y bases</h3>
+<div class="grid">
+
+<div class="card">
+<img src="img2/p18.jpeg">
+<p>Base decorativa con portarretrato personalizado.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20base%20con%20portarretrato">Cotizar</a>
+</div>
+
+<div class="card">
+<img src="img2/p19.jpeg">
+<p>Diseño personalizado con nombre grabado.</p>
+<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20marco%20personalizado">Cotizar</a>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- BOTON FLOTANTE -->
+<a class="wsp-float" href="https://wa.me/573138274878?text=Hola%20quiero%20información%20de%20Infinity%20Laser">💬</a>
 
 </body>
 </html>
