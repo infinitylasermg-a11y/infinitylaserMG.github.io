@@ -1,258 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infinity Laser</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Laser</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-* { box-sizing: border-box; }
+    :root {
+      --fondo: linear-gradient(135deg, #fff7f0, #ffe8f3, #eef7ff);
+      --principal: #ff4d6d;
+      --secundario: #7b2cbf;
+      --acento: #ffb703;
+      --verde: #25d366;
+      --texto: #222;
+      --blanco: #ffffff;
+      --sombra: 0 10px 25px rgba(0, 0, 0, 0.12);
+      --radio: 18px;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f5f5;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.5;
+    }
 
-/* HEADER */
-header {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 25px;
-}
+    header {
+      background: linear-gradient(135deg, #111, #3a0ca3, #ff006e);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.logo-container {
-  background: white;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      animation: flotar 8s infinite ease-in-out;
+    }
 
-.logo-container img {
-  width: 80px;
-}
+    header::before {
+      width: 180px;
+      height: 180px;
+      top: -50px;
+      left: -40px;
+    }
 
-/* GALERIA */
-.galeria {
-  padding: 30px;
-  max-width: 1200px;
-  margin: auto;
-}
+    header::after {
+      width: 220px;
+      height: 220px;
+      bottom: -70px;
+      right: -60px;
+      animation-delay: 2s;
+    }
 
-.categoria {
-  margin-bottom: 40px;
-}
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(15px); }
+    }
 
-.categoria h3 {
-  border-left: 5px solid black;
-  padding-left: 10px;
-}
+    .logo-container {
+      background: white;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 5px solid rgba(255,255,255,0.3);
+      animation: zoomLogo 2s ease;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
+    .logo-container img {
+      width: 90px;
+      max-width: 100%;
+      object-fit: contain;
+    }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+    @keyframes zoomLogo {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
 
-.card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
 
-.card p {
-  padding: 10px;
-  font-size: 14px;
-}
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
 
-/* BOTON WHATSAPP */
-.btn-wsp {
-  display: block;
-  text-align: center;
-  background: #25D366;
-  color: white;
-  padding: 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .galeria {
+      max-width: 1250px;
+      margin: auto;
+      padding: 40px 20px 60px;
+    }
 
-.btn-wsp:hover {
-  background: #1ebe5d;
-}
+    .titulo-seccion {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--secundario);
+      margin-bottom: 30px;
+    }
 
-/* BOTON FLOTANTE */
-.wsp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  font-size: 24px;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-}
-</style>
+    .categoria {
+      margin-bottom: 45px;
+      animation: aparecer 1s ease;
+    }
 
+    .categoria h3 {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--principal), var(--acento));
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      box-shadow: var(--sombra);
+      font-size: 1.1rem;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radio);
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      background: #f3f3f3;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h4 {
+      color: var(--principal);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #444;
+      min-height: 55px;
+      margin-bottom: 14px;
+    }
+
+    .btn-wsp {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(90deg, #25d366, #1ebe5d);
+      color: white;
+      padding: 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-wsp:hover {
+      transform: scale(1.03);
+      opacity: 0.95;
+    }
+
+    .wsp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 62px;
+      height: 62px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      animation: pulso 1.8s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes pulso {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 22px 15px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .logo-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .logo-container img {
+        width: 78px;
+      }
+
+      .card img {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-container">
-    <img src="img2/p00.png">
-  </div>
-  <h1>Infinity Laser</h1>
-  <p>Cortes y diseños personalizados en láser</p>
-</header>
-
-<section class="galeria">
-
-<!-- RELOJES -->
-<div class="categoria">
-<h3>Relojes personalizados</h3>
-<div class="grid">
-
-<div class="card">
-<img src="img2/p7.jpeg">
-<p>Reloj personalizado para negocio automotriz con diseño elegante.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20el%20reloj%20automotriz">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p8.jpeg">
-<p>Reloj temático de The Mandalorian con grabado láser.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20el%20reloj%20Mandalorian">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p9.jpeg">
-<p>Relojes personalizados en diferentes estilos.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20personalizado">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p10.jpeg">
-<p>Reloj decorativo Star Wars con acabado dorado.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20Star%20Wars">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p21.jpeg">
-<p>Detalle de reloj personalizado con nombre de negocio.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20reloj%20personalizado%20con%20nombre">Cotizar</a>
-</div>
-
-</div>
-</div>
-
-<!-- ROSAS -->
-<div class="categoria">
-<h3>Rosas decorativas</h3>
-<div class="grid">
-
-<div class="card">
-<img src="img2/p11.jpeg">
-<p>Rosa personalizada para fechas especiales.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosa%20personalizada">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p12.jpeg">
-<p>Rosa decorativa con nombre personalizado.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosa%20con%20nombre">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p15.jpeg">
-<p>Rosas para eventos o ventas al por mayor.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20rosas%20al%20por%20mayor">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p20.jpeg">
-<p>Producción de rosas personalizadas en MDF.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20producción%20de%20rosas">Cotizar</a>
-</div>
-
-</div>
-</div>
-
-<!-- LETRAS -->
-<div class="categoria">
-<h3>Nombres y letras</h3>
-<div class="grid">
-
-<div class="card">
-<img src="img2/p13.jpeg">
-<p>Nombre decorativo para eventos como bautizos.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20nombre%20decorativo">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p14.jpeg">
-<p>Letras personalizadas con acabado brillante.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20letras%20decorativas">Cotizar</a>
-</div>
-
-</div>
-</div>
-
-<!-- ESCUDOS -->
-<div class="categoria">
-<h3>Escudos personalizados</h3>
-<div class="grid">
-
-<div class="card">
-<img src="img2/p16.jpeg">
-<p>Escudo personalizado con nombre en diseño elegante.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20escudo%20personalizado">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p17.jpeg">
-<p>Escudo grande ideal para decoración o eventos.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20escudo%20grande">Cotizar</a>
-</div>
-
-</div>
-</div>
-
-<!-- MARCOS -->
-<div class="categoria">
-<h3>Marcos y bases</h3>
-<div class="grid">
-
-<div class="card">
-<img src="img2/p18.jpeg">
-<p>Base decorativa con portarretrato personalizado.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20base%20con%20portarretrato">Cotizar</a>
-</div>
-
-<div class="card">
-<img src="img2/p19.jpeg">
-<p>Diseño personalizado con nombre grabado.</p>
-<a class="btn-wsp" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20marco%20personalizado">Cotizar</a>
-</div>
-
-</div>
-</div>
-
-</section>
-
-<!-- BOTON FLOTANTE -->
-<a class="wsp-float" href="https://wa.me/573138274878?text=Hola%20quiero%20información%20de%20Infinity%20Laser">💬</a>
-
-</body>
-</html>
+  <header>
+    <div class="logo-container">
+      <img src="img2/p00.png" alt="Logo Infinity Laser">
+    </div>
+    <h1>Infinity Laser</h1>
+    <p>Cortes y diseños personalizados en láser</
