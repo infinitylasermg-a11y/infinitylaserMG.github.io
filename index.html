@@ -4,129 +4,435 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infinity Laser</title>
-
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --fondo: linear-gradient(135deg, #fff7f0, #ffe8f3, #eef7ff);
+      --principal: #ff4d6d;
+      --secundario: #7b2cbf;
+      --acento: #ffb703;
+      --verde: #25d366;
+      --texto: #222;
+      --blanco: #ffffff;
+      --sombra: 0 10px 25px rgba(0, 0, 0, 0.12);
+      --radio: 18px;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.5;
     }
 
     header {
-      background: #000;
+      background: linear-gradient(135deg, #111, #3a0ca3, #ff006e);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .logo {
-      width: 100px;
-      margin-bottom: 10px;
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      animation: flotar 8s infinite ease-in-out;
+    }
+
+    header::before {
+      width: 180px;
+      height: 180px;
+      top: -50px;
+      left: -40px;
+    }
+
+    header::after {
+      width: 220px;
+      height: 220px;
+      bottom: -70px;
+      right: -60px;
+      animation-delay: 2s;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(15px); }
+    }
+
+    .logo-container {
+      background: white;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 5px solid rgba(255,255,255,0.3);
+      animation: zoomLogo 2s ease;
+    }
+
+    .logo-container img {
+      width: 90px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    @keyframes zoomLogo {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
     }
 
     .galeria {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1250px;
+      margin: auto;
+      padding: 40px 20px 60px;
     }
 
-    .galeria h2 {
+    .titulo-seccion {
       text-align: center;
+      font-size: 2rem;
+      color: var(--secundario);
+      margin-bottom: 30px;
+    }
+
+    .categoria {
+      margin-bottom: 45px;
+      animation: aparecer 1s ease;
+    }
+
+    .categoria h3 {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--principal), var(--acento));
+      color: white;
+      padding: 10px 18px;
+      border-radius: 999px;
       margin-bottom: 20px;
+      box-shadow: var(--sombra);
+      font-size: 1.1rem;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: white;
-      border-radius: 10px;
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radio);
       overflow: hidden;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      box-shadow: var(--sombra);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.18);
     }
 
     .card img {
       width: 100%;
-      height: 250px;
+      height: 280px;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease;
+      background: #f3f3f3;
     }
 
-    .card p {
-      padding: 10px;
-      margin: 0;
+    .card:hover img {
+      transform: scale(1.05);
     }
 
-    .btn {
-      display: block;
-      background: #25d366;
-      color: white;
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h4 {
+      color: var(--principal);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .card-content p {
+      font-size: 14px;
+      color: #444;
+      min-height: 55px;
+      margin-bottom: 14px;
+    }
+
+    .btn-wsp {
+      display: inline-block;
+      width: 100%;
       text-align: center;
-      padding: 10px;
+      background: linear-gradient(90deg, #25d366, #1ebe5d);
+      color: white;
+      padding: 12px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: bold;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .btn:hover {
-      background: #1eb85a;
+    .btn-wsp:hover {
+      transform: scale(1.03);
+      opacity: 0.95;
+    }
+
+    .wsp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 62px;
+      height: 62px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      animation: pulso 1.8s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes pulso {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 22px 15px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .logo-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .logo-container img {
+        width: 78px;
+      }
+
+      .card img {
+        height: 240px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="img2/logo.png" alt="Logo Infinity Laser" class="logo">
+    <div class="logo-container">
+      <img src="img2/p00.png" alt="Logo Infinity Laser">
+    </div>
     <h1>Infinity Laser</h1>
-    <p>Corte láser y personalizados</p>
+    <p>Cortes y diseños personalizados en láser</p>
   </header>
 
   <section class="galeria">
-    <h2>Galería de trabajos</h2>
+    <h2 class="titulo-seccion">Galería de trabajos</h2>
 
-    <div class="grid">
+    <div class="categoria">
+      <h3>Detalles y recuerdos personalizados</h3>
+      <div class="grid">
 
-      <div class="card">
-        <img src="img2/p2.jpeg" alt="Figura decorativa para eventos">
-        <p>Figura decorativa para eventos</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20esta%20figura%20decorativa">Cotizar</a>
+        <div class="card">
+          <img src="img2/p1.jpeg" alt="Adorno navideño">
+          <div class="card-content">
+            <h4>Adorno navideño personalizado</h4>
+            <p>Diseño circular en MDF con nombre grabado, ideal para decoración navideña o recuerdos especiales.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20adorno%20navideño%20personalizado">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p2.jpeg" alt="Ángel para bautizo">
+          <div class="card-content">
+            <h4>Ángel para bautizo</h4>
+            <p>Figura decorativa en MDF con base personalizada, perfecta para recuerdos de bautizo o primera comunión.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20ángel%20para%20bautizo">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p3.jpeg" alt="Reloj Star Wars">
+          <div class="card-content">
+            <h4>Reloj temático Star Wars</h4>
+            <p>Reloj decorativo personalizado con diseño temático, ideal para habitaciones, regalos y fanáticos.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20reloj%20Star%20Wars">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p4.jpeg" alt="Reloj personalizado Carlos Andrés">
+          <div class="card-content">
+            <h4>Reloj personalizado con nombre</h4>
+            <p>Reloj decorativo con nombre y diseño exclusivo. Excelente opción para regalos personalizados.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20reloj%20personalizado%20con%20nombre">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p5.jpeg" alt="Reloj Yaya Cars">
+          <div class="card-content">
+            <h4>Reloj para negocio</h4>
+            <p>Reloj personalizado para empresa o emprendimiento, con nombre y diseño comercial en láser.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20reloj%20para%20negocio">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p6.jpeg" alt="Reloj Mandalorian">
+          <div class="card-content">
+            <h4>Reloj Mandalorian</h4>
+            <p>Diseño temático en MDF con grabado láser, perfecto para decoración personalizada y regalos únicos.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20reloj%20Mandalorian">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p7.jpeg" alt="Rosa personalizada">
+          <div class="card-content">
+            <h4>Rosa personalizada</h4>
+            <p>Rosa decorativa en MDF con mensaje grabado, ideal para fechas especiales y detalles románticos.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20la%20rosa%20personalizada">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p8.jpeg" alt="Rosa personalizada vertical">
+          <div class="card-content">
+            <h4>Rosa decorativa vertical</h4>
+            <p>Detalle elegante en color rojo con mensaje personalizado, perfecto para regalar y decorar.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20la%20rosa%20decorativa%20vertical">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p9.jpeg" alt="Nombre para bautizo">
+          <div class="card-content">
+            <h4>Nombre decorativo para bautizo</h4>
+            <p>Nombre personalizado en acabado brillante, ideal para decoración de eventos y mesas principales.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20nombre%20decorativo%20para%20bautizo">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p10.jpeg" alt="Letras decorativas">
+          <div class="card-content">
+            <h4>Letras decorativas brillantes</h4>
+            <p>Letras o palabras personalizadas en material brillante para decorar fiestas, negocios o espacios especiales.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20las%20letras%20decorativas%20brillantes">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p11.jpeg" alt="Escudo personalizado">
+          <div class="card-content">
+            <h4>Escudo personalizado</h4>
+            <p>Escudo decorativo en MDF con letras y formas personalizadas, ideal para colegios, equipos o eventos.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20escudo%20personalizado">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p12.jpeg" alt="Escudo grande Alejo">
+          <div class="card-content">
+            <h4>Escudo grande personalizado</h4>
+            <p>Pieza decorativa de gran tamaño, ideal para murales, paredes, eventos o decoración temática.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20el%20escudo%20grande%20personalizado">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p13.jpeg" alt="Base decorativa">
+          <div class="card-content">
+            <h4>Base decorativa con portarretrato</h4>
+            <p>Base personalizada con marco y compartimiento, ideal para recordatorios, escritorio o detalles especiales.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20la%20base%20decorativa%20con%20portarretrato">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p14.jpeg" alt="Base decorativa personalizada">
+          <div class="card-content">
+            <h4>Base personalizada con nombre</h4>
+            <p>Diseño útil y decorativo con nombre grabado, excelente para obsequios y decoración personalizada.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20la%20base%20personalizada%20con%20nombre">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="img2/p15.jpeg" alt="Producción de rosas">
+          <div class="card-content">
+            <h4>Producción de rosas al por mayor</h4>
+            <p>Fabricación de piezas decorativas en serie para pedidos grandes, eventos o ventas comerciales.</p>
+            <a class="btn-wsp" href="https://wa.me/573138274878?text=Hola,%20quiero%20cotizar%20producción%20de%20rosas%20al%20por%20mayor">Cotizar por WhatsApp</a>
+          </div>
+        </div>
+
       </div>
-
-      <div class="card">
-        <img src="img2/p3.jpeg" alt="Reloj personalizado">
-        <p>Reloj personalizado</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20este%20reloj%20personalizado">Cotizar</a>
-      </div>
-
-      <div class="card">
-        <img src="img2/p4.jpeg" alt="Diseño grabado láser">
-        <p>Diseño grabado láser</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20este%20diseño%20grabado">Cotizar</a>
-      </div>
-
-      <div class="card">
-        <img src="img2/p5.jpeg" alt="Reloj para negocio">
-        <p>Reloj para negocio</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20este%20reloj%20para%20negocio">Cotizar</a>
-      </div>
-
-      <div class="card">
-        <img src="img2/p6.jpeg" alt="Diseño personalizado">
-        <p>Diseño personalizado</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20este%20diseño%20personalizado">Cotizar</a>
-      </div>
-
-      <div class="card">
-        <img src="img2/p7.jpeg" alt="Trabajo decorativo personalizado">
-        <p>Trabajo decorativo personalizado</p>
-        <a class="btn" href="https://wa.me/573138274878?text=Hola%20quiero%20cotizar%20este%20trabajo%20decorativo">Cotizar</a>
-      </div>
-
     </div>
   </section>
+
+  <a class="wsp-float" href="https://wa.me/573138274878?text=Hola,%20quiero%20más%20información%20sobre%20Infinity%20Laser" target="_blank">💬</a>
+
+  <footer>
+    <p>Infinity Laser · Diseños y cortes personalizados en láser · WhatsApp: 313 827 4878</p>
+  </footer>
 
 </body>
 </html>
